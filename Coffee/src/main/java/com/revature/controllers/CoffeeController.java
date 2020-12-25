@@ -1,12 +1,25 @@
 package com.revature.controllers;
 
+import com.revature.Coffee;
+import com.revature.Repositories.CoffeeRepository;
+import com.revature.Services.CoffeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-//@RequestMapping("/Coffee")
+@RequestMapping("/Coffee")
 public class CoffeeController {
+
+    @Autowired
+    CoffeeService CoffeeService;
+
+    @Autowired
+    CoffeeRepository coffeeRepository;
 
     @GetMapping
     public ResponseEntity<String> helloCoffee() {
@@ -14,16 +27,57 @@ public class CoffeeController {
                 .body("Hello World! This is Coffee!");
     }
 
-    // the following link hits this mapping
-    //http://localhost:8090/boot/Coffee/Coffee2?fooid=HOT&name=Brasilian
-    // you need & to attach!!! the current param to the preceding one
+//create
 
-    @RequestMapping(value = "/Coffee2", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
+    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
     @ResponseBody
-    public String addFoo(@RequestParam String fooid, @RequestParam String name) {
-        return "FOIDID IS " + fooid + " SECOND REQUEST PARAMETER name is " + name;
+    public String newCoffee(@RequestParam String name, @RequestParam String description) {
+
+        CoffeeService.newCoffee(name,description);
+        return "You have just brewed a delicious: " +name;
 
         // public ResponseEntity<String> helloCoffee2 () {
         //return ResponseEntity.status(HttpStatus.OK).body("You hit me!");
     }
+
+
+
+    //read
+    @RequestMapping(
+            value ="/getCoffees",
+            method = RequestMethod.GET,
+            consumes = "application/x-www-form-urlencoded",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List getCoffees() {
+
+        return CoffeeService.findAllCoffees();
+        //return coffeeRepository.findAll(); //ur amazing papito! it works!
+    }
+
+
+
+
+
+    //update
+
+    @RequestMapping(
+        value="/updateCoffee",
+        method = RequestMethod.POST,
+        consumes = "application/x-www-form-urlencoded",
+        produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+        String updateCoffee(@RequestParam String name, @RequestParam String description) {
+
+        return "Your update has been successfully recorded in the Database!";
+
+        }
+
+    }
+    )
+
+
+    // delete
+
+
 }
