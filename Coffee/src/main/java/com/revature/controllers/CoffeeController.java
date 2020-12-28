@@ -29,7 +29,10 @@ public class CoffeeController {
 
 //create
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded")
+    @RequestMapping(
+            value = "/create",
+            method = RequestMethod.POST,
+            consumes = "application/x-www-form-urlencoded")
     @ResponseBody
     public String newCoffee(@RequestParam String name, @RequestParam String description) {
 
@@ -55,10 +58,6 @@ public class CoffeeController {
         //return coffeeRepository.findAll(); //ur amazing papito! it works!
     }
 
-
-
-
-
     //update
 
     @RequestMapping(
@@ -67,17 +66,17 @@ public class CoffeeController {
         consumes = "application/x-www-form-urlencoded",
         produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
-        String updateCoffee(@RequestParam String name, @RequestParam String description) {
+        String updateCoffees(@RequestParam String name, @RequestParam Integer id) {
 
-        return "Your update has been successfully recorded in the Database!";
+       return CoffeeService.updateCoffeesService(name, id);
+
 
         }
 
     }
-    )
+
 
 
     // delete
 
 
-}

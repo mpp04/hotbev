@@ -2,14 +2,17 @@ package com.revature.Models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+
 
 import javax.persistence.*;
+
 
 @Getter
 @Setter
 @Entity
 @Table(name="coffees")
+
 public class CoffeeModel {
 
     @Id

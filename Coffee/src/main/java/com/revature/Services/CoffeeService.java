@@ -3,12 +3,8 @@ package com.revature.Services;
 import com.revature.Models.CoffeeModel;
 import com.revature.Repositories.CoffeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.List;
 
 
@@ -17,10 +13,7 @@ import java.util.List;
 @EnableJpaRepositories
 @Service
 public class CoffeeService {
-    @Query(
-            value = "update coffees set ?2 WHERE name = ?1",
-            nativeQuery = true)
-    void updateCoffeesByName(){};
+
 
     @Autowired
     CoffeeRepository coffeeRepository;
@@ -34,15 +27,14 @@ public class CoffeeService {
 
 
 
+
     public CoffeeModel newCoffee(String name, String description) {
 
         System.out.println("Coffee SERVICE: name is" + name + " description is: " + description);
         CoffeeModel coffee = new CoffeeModel(name, description);
         coffeeRepository.save(coffee);
         //SoupModel soup2 = SoupRepository.save(soup);
-
         return coffee;
-
     }
 
     public List findAllCoffees() {
@@ -51,10 +43,17 @@ public class CoffeeService {
     }
 
 
-    public void updateCoffeeEntry() {
-       // coffeeRepository.findOne();
-
+    public String updateCoffeesService(String name, Integer id) {
+        Integer i = coffeeRepository.updateCoffees(name, id);
+        if (i>1) {
+            return "You have updated more than 1 entry! " +
+            "Hint: check for duplicate primary key values in DB!";}
+        else if (i==0)  {
+            return "You have not made any updates to the DB!" +
+            "Hint: check if entry is the DB!";}
+    return "Your update has been successfully recorded in the Database!";
     }
+
 
 
 

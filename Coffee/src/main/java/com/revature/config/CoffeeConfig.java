@@ -61,7 +61,7 @@ public class CoffeeConfig {
         public LocalSessionFactoryBean sessionFactoryBean(DataSource dsb){
             LocalSessionFactoryBean sfBean = new LocalSessionFactoryBean();
             sfBean.setDataSource(dsb);
-            sfBean.setPackagesToScan("com.revature.*");
+            sfBean.setPackagesToScan("com.revature.Models");
             sfBean.setHibernateProperties(getSfProps());
             System.out.println("sessionFact");
             return sfBean;
