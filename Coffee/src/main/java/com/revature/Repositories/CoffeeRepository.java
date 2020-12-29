@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +30,9 @@ public interface CoffeeRepository extends JpaRepository<CoffeeModel, Integer> {
     Integer updateCoffees(@Param("name") String name, @Param("id") Integer id);
 
 
+    @Modifying
+    @Query("delete from CoffeeModel c where c.id = :id")
+    Integer deleteCoffees(@Param("id") Integer id);
 
 
 

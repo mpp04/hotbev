@@ -43,7 +43,7 @@ public class CoffeeService {
     }
 
 
-    public String updateCoffeesService(String name, Integer id) {
+    public String updateCoffees(String name, Integer id) {
         Integer i = coffeeRepository.updateCoffees(name, id);
         if (i>1) {
             return "You have updated more than 1 entry! " +
@@ -54,6 +54,18 @@ public class CoffeeService {
     return "Your update has been successfully recorded in the Database!";
     }
 
+
+    public String deleteCoffees(Integer id) {
+    Integer i = coffeeRepository.deleteCoffees(id);
+        if (i == 0) {
+            return "You attempted to delete one entry but affected none. " +
+                    "Hint: Check if iD is correct!"; }
+        else if (i > 1 ) {
+            return "You attempted to delete one entry but affected " +i
+                    + "Hint: Check for ID duplicates or cascades!";
+        }
+        return "Your deletion has been successful!";
+    }
 
 
 

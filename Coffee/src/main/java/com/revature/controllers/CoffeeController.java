@@ -67,16 +67,21 @@ public class CoffeeController {
         produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
         String updateCoffees(@RequestParam String name, @RequestParam Integer id) {
-
-       return CoffeeService.updateCoffeesService(name, id);
-
-
+       return CoffeeService.updateCoffees(name, id);
         }
 
-    }
+
 
 
 
     // delete
+@RequestMapping(
+        value = "/deleteCoffee",
+        method = RequestMethod.POST,
+        consumes = "application/x-www-form-urlencoded",
+        produces = MediaType.TEXT_PLAIN_VALUE)
+@ResponseBody
+String deleteCoffees(@RequestParam Integer id) {
+    return CoffeeService.deleteCoffees(id); }
 
-
+}
