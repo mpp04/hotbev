@@ -1,8 +1,6 @@
 package com.hotbev.tea.Models;
 
 
-
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,12 +9,11 @@ import lombok.ToString;
 import javax.persistence.*;
 
 
-
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-@Table(name="teas")
+@Table(name = "teas")
 @Entity
 public class TeaModel {
 
@@ -33,9 +30,8 @@ public class TeaModel {
         this.description = description;
     }
 
-    public TeaModel() {    }
-
-
+    public TeaModel() {
+    }
 
 
 }

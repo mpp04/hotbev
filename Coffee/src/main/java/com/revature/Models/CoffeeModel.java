@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="coffees")
+@Table(name = "coffees")
 
 public class CoffeeModel {
 
@@ -26,13 +26,13 @@ public class CoffeeModel {
     private String description;
 
 
-    public CoffeeModel(){}
-
-    public CoffeeModel(String name, String description) {
-        this.name=name;
-        this.description=description;
+    public CoffeeModel() {
     }
 
+    public CoffeeModel(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
 
 }

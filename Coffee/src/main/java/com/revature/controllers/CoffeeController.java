@@ -36,18 +36,17 @@ public class CoffeeController {
     @ResponseBody
     public String newCoffee(@RequestParam String name, @RequestParam String description) {
 
-        CoffeeService.newCoffee(name,description);
-        return "You have just brewed a delicious: " +name;
+        CoffeeService.newCoffee(name, description);
+        return "You have just brewed a delicious: " + name;
 
         // public ResponseEntity<String> helloCoffee2 () {
         //return ResponseEntity.status(HttpStatus.OK).body("You hit me!");
     }
 
 
-
     //read
     @RequestMapping(
-            value ="/getCoffees",
+            value = "/getCoffees",
             method = RequestMethod.GET,
             consumes = "application/x-www-form-urlencoded",
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,27 +60,25 @@ public class CoffeeController {
     //update
 
     @RequestMapping(
-        value="/updateCoffee",
-        method = RequestMethod.POST,
-        consumes = "application/x-www-form-urlencoded",
-        produces = MediaType.TEXT_PLAIN_VALUE)
+            value = "/updateCoffee",
+            method = RequestMethod.POST,
+            consumes = "application/x-www-form-urlencoded",
+            produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
-        String updateCoffees(@RequestParam String name, @RequestParam Integer id) {
-       return CoffeeService.updateCoffees(name, id);
-        }
-
-
-
+    String updateCoffees(@RequestParam String name, @RequestParam Integer id) {
+        return CoffeeService.updateCoffees(name, id);
+    }
 
 
     // delete
-@RequestMapping(
-        value = "/deleteCoffee",
-        method = RequestMethod.POST,
-        consumes = "application/x-www-form-urlencoded",
-        produces = MediaType.TEXT_PLAIN_VALUE)
-@ResponseBody
-String deleteCoffees(@RequestParam Integer id) {
-    return CoffeeService.deleteCoffees(id); }
+    @RequestMapping(
+            value = "/deleteCoffee",
+            method = RequestMethod.POST,
+            consumes = "application/x-www-form-urlencoded",
+            produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    String deleteCoffees(@RequestParam Integer id) {
+        return CoffeeService.deleteCoffees(id);
+    }
 
 }

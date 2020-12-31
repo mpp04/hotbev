@@ -6,10 +6,11 @@ import lombok.Setter;
 import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
+
 @Getter
 @Setter
 @Entity
-@Table(name="coffee_brewing_method")
+@Table(name = "coffee_brewing_method")
 public class CoffeeBrewingMethodModel {
 
     @Id
@@ -17,13 +18,14 @@ public class CoffeeBrewingMethodModel {
     Integer id;
 
 
-    @Column(name="method_name")
+    @Column(name = "method_name")
     String MethodName;
 
     @JsonProperty("Brewing_Details")
     @Column
     String details;
 
-    public CoffeeBrewingMethodModel(){}
+    public CoffeeBrewingMethodModel() {
+    }
 
 }

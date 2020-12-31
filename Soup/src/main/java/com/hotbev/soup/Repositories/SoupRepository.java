@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @EnableJpaRepositories("com.hotbev.soup.Repositories")
-public interface SoupRepository extends JpaRepository<SoupModel,Integer> {
+public interface SoupRepository extends JpaRepository<SoupModel, Integer> {
 
 
 }

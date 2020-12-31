@@ -36,14 +36,13 @@ produces = MediaType.APPLICATION_JSON_VALUE
     SoupModel newSoup;
 
 
-
-    @GetMapping(value = "/new/soup", produces= MediaType.TEXT_PLAIN_VALUE)
+    @GetMapping(value = "/new/soup", produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> requestNewSoup(@RequestParam String name, @RequestParam String d) {
-    System.out.println("POSTMAPPING: Parameter name is: " +name +" Parameter d is: " +d);
-    soupService.newSoup(name, d);
+        System.out.println("POSTMAPPING: Parameter name is: " + name + " Parameter d is: " + d);
+        soupService.newSoup(name, d);
 
-   // newSoup = new soups(name, d);
-   // soupRepository.save(newSoup);
-    return ResponseEntity.ok("You have brewed delicious Soup!");
+        // newSoup = new soups(name, d);
+        // soupRepository.save(newSoup);
+        return ResponseEntity.ok("You have brewed delicious Soup!");
     }
 }

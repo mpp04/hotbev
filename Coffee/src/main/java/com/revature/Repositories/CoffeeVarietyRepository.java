@@ -10,13 +10,11 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 
-
 @Repository
 public interface CoffeeVarietyRepository extends
         JpaRepository<CoffeeVarietyModel, Integer> {
 
-CoffeeVarietyModel getAllBy();
-
+    CoffeeVarietyModel getAllBy();
 
 
 }

@@ -19,7 +19,6 @@ import java.util.List;
 public interface CoffeeRepository extends JpaRepository<CoffeeModel, Integer> {
 
 
-
     @Query("SELECT c from CoffeeModel c")
     List<CoffeeModel> showAll();
 
@@ -31,12 +30,6 @@ public interface CoffeeRepository extends JpaRepository<CoffeeModel, Integer> {
     @Modifying
     @Query("delete from CoffeeModel c where c.id = :id")
     Integer deleteCoffees(@Param("id") Integer id);
-
-
-
-
-
-
 
 
 }

@@ -15,7 +15,8 @@ import java.util.List;
 @EnableJpaRepositories
 public class CoffeeDrinkService {
 
-    CoffeeDrinkService(){}
+    CoffeeDrinkService() {
+    }
 
     @Autowired
     CoffeeDrinksRepository coffeeDrinksRepository;
@@ -61,18 +62,16 @@ public class CoffeeDrinkService {
     }
 
 
-
     public CoffeeDrinkModel makeNewCoffeeDrink(String coffeeVariety, String coffeeIngredients,
                                                String coffeeFilter, String coffeeBrewingMethod,
                                                String coffeeDrinkName,
-                                               String coffeeDrinkDescription){
+                                               String coffeeDrinkDescription) {
 
-        CoffeeDrinkModel coffeeDrink = new CoffeeDrinkModel(coffeeVariety,coffeeIngredients,
-                coffeeFilter,coffeeBrewingMethod,coffeeDrinkName,coffeeDrinkDescription);
+        CoffeeDrinkModel coffeeDrink = new CoffeeDrinkModel(coffeeVariety, coffeeIngredients,
+                coffeeFilter, coffeeBrewingMethod, coffeeDrinkName, coffeeDrinkDescription);
         coffeeDrinksRepository.save(coffeeDrink);
         return coffeeDrink;
     }
-
 
 
     public CoffeeVarietyModel makeNewVariety(String coffeeVariety, String details) {

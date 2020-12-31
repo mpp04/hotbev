@@ -16,7 +16,7 @@ public class SoupService {
     @ResponseBody
     public SoupModel newSoup(String name, String description) {
 
-        System.out.println("SOUP SERVICE: name is" +name +" description is: " +description);
+        System.out.println("SOUP SERVICE: name is" + name + " description is: " + description);
         SoupModel soup = new SoupModel(name, description);
         soupRepository.save(soup);
         //SoupModel soup2 = SoupRepository.save(soup);

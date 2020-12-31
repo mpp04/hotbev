@@ -13,7 +13,7 @@
     <artifactId>SpringBootDemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Coffee</name>
-    <description>Hot Bev project Coffees </description>
+    <description>Hot Bev project Coffees</description>
 
     <properties>
         <java.version>1.8</java.version>

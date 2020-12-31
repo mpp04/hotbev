@@ -54,23 +54,24 @@ public class CoffeeDrinkController {
     }
 
     @RequestMapping(
-            value ="/getAllCoffeeFilters",
+            value = "/getAllCoffeeFilters",
             method = RequestMethod.GET,
             consumes = "text/plain",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List getAllCoffeeFilters() {
-        return coffeeDrinkService.findAllCoffeeFilter(); }
+        return coffeeDrinkService.findAllCoffeeFilter();
+    }
 
     @RequestMapping(
-            value ="/getAllCoffeeBrewingMethods",
+            value = "/getAllCoffeeBrewingMethods",
             method = RequestMethod.GET,
             consumes = "text/plain",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List getAllCoffeeBrewingMethods() {
-        return coffeeDrinkService.findAllCoffeeBrewingMethod(); }
-
+        return coffeeDrinkService.findAllCoffeeBrewingMethod();
+    }
 
 
     @RequestMapping(
@@ -113,10 +114,13 @@ public class CoffeeDrinkController {
             @RequestParam String IngredientName,
             @RequestParam String details) {
 
-        return coffeeDrinkService.addCoffeeIngredient(IngredientName, details);}
-
-
+        return coffeeDrinkService.addCoffeeIngredient(IngredientName, details);
     }
 
 
+}
+
+/**
+ *
+ */
 
