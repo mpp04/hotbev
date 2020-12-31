@@ -1,8 +1,10 @@
 package com.revature.Models;
 
 
+import com.revature.Coffee;
 import lombok.Getter;
 import lombok.Setter;
+import org.h2.util.json.JSONObject;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,47 +12,55 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name="")
+@Table(name="coffee_drinks")
 public class CoffeeDrinkModel {
 
-CoffeeDrinkModel(
-CoffeeVarietyModel cv,
-List<CoffeeIngredientsModel> ci,
-CoffeeFilterModel cf,
-CoffeeBrewingMethodModel cfm,
-String cfd) {
-
-this.coffeeVarietyModel=cv;
-this.coffeeIngredientsModel=ci;
-this.coffeeFilterModel=cf;
-this.coffeeBrewingMethodModel=cfm;
-this.coffeeDrinkName=cfd; }
+ public CoffeeDrinkModel(){}
 
 
 
- CoffeeVarietyModel coffeeVarietyModel;
+public CoffeeDrinkModel(
+  String coffeeVariety,
+  String coffeeIngredients,
+  String coffeeFilter,
+  String coffeeBrewingMethod,
+  String coffeeDrinkName,
+  String coffeeDrinkDescription) {
 
- List<CoffeeIngredientsModel> coffeeIngredientsModel;
+  this.coffeeVariety=coffeeVariety;
+  this.coffeeIngredients=coffeeIngredients;
+  this.coffeeFilter=coffeeFilter;
+  this.coffeeBrewingMethod=coffeeBrewingMethod;
+  this.coffeeDrinkName=coffeeDrinkName;
+  this.coffeeDrinkDescription=coffeeDrinkDescription;
+}
 
- CoffeeFilterModel coffeeFilterModel;
-
- CoffeeBrewingMethodModel coffeeBrewingMethodModel;
 
 
+ @Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ Integer id;
 
- String coffeeDrinkName;
+    @Column(name="coffee_variety")
+    String coffeeVariety;
 
-//WHAT DO YOU WANT ?
- /** What do we want to achieve:
-  * We want to:
-  * 1. Create a CoffeeDrinkModel as the sum of the Coffee Models: BrewingMethod, Filter, Ingredients and Variety
-  * 2. Does JSON construction play a role?
-  * 3. To persist CoffeeDrinks, it seems the CoffeeDrinks Data Base must be able to accommodate Objects directly. That
-  * is, each column in the table that represents a CoffeeDrink, must be able to store an object value. Therefore, using
-  * JSONs seems the way to do that.
-  * 4. So, how and at what point do we convert into JSON each of the CoffeeDrink objects that act as its constructive
-  * elements??
-  */
+    @Column(name="coffee_ingredients")
+    String coffeeIngredients;
+
+    @Column(name="coffee_filter")
+    String coffeeFilter;
+
+    @Column(name="coffee_brewing_method")
+    String coffeeBrewingMethod;
+
+    @Column(name="coffee_drink_name")
+    String coffeeDrinkName;
+
+    @Column(name="coffee_drink_description")
+    String coffeeDrinkDescription;
+
+
+
 
 
 }

@@ -14,13 +14,13 @@ public class CoffeeFilterModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column
+    @Column(name="filter_types")
     String FilterTypes;
 
     @Column
     String details;
 
-    public CoffeeFilterModel(){};
+    public CoffeeFilterModel(){}
 
 
 

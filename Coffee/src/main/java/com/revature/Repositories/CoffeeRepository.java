@@ -18,8 +18,6 @@ import java.util.List;
 @Repository
 public interface CoffeeRepository extends JpaRepository<CoffeeModel, Integer> {
 
-    @Override
-    CoffeeModel getOne(Integer integer);
 
 
     @Query("SELECT c from CoffeeModel c")
@@ -33,6 +31,7 @@ public interface CoffeeRepository extends JpaRepository<CoffeeModel, Integer> {
     @Modifying
     @Query("delete from CoffeeModel c where c.id = :id")
     Integer deleteCoffees(@Param("id") Integer id);
+
 
 
 

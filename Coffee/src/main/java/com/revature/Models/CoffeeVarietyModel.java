@@ -17,16 +17,20 @@ public class CoffeeVarietyModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column
-    String CoffeeVarietyName;
+    @Column(name="coffee_variety_name")
+    String coffeeVarietyName;
 
     @Column
     String details;
 
 
+    public CoffeeVarietyModel(String coffeeVarietyName, String details) {
+        this.coffeeVarietyName = coffeeVarietyName;
+        this.details= details;
+    }
 
 
+    public CoffeeVarietyModel() {
 
-
-
+    }
 }

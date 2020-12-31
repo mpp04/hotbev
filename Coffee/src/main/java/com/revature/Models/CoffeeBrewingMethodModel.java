@@ -1,5 +1,6 @@
 package com.revature.Models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.repository.cdi.Eager;
@@ -15,12 +16,14 @@ public class CoffeeBrewingMethodModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column
+
+    @Column(name="method_name")
     String MethodName;
 
+    @JsonProperty("Brewing_Details")
     @Column
     String details;
 
-    public CoffeeBrewingMethodModel(){};
+    public CoffeeBrewingMethodModel(){}
 
 }

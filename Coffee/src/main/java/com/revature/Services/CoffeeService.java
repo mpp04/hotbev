@@ -19,7 +19,7 @@ public class CoffeeService {
     CoffeeRepository coffeeRepository;
 
 
-    CoffeeModel coffeeModel;
+
 
     CoffeeService() {
     }
