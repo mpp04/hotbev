@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.print.attribute.standard.Media;
 import java.util.List;
 
 
@@ -130,8 +131,24 @@ public class CoffeeDrinkController {
 
 
 
+    @RequestMapping(
+            value = "getCoffeeDrinkIngredients",
+            method = RequestMethod.GET,
+            consumes = "application/x-www-form-urlencoded",
+            produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public List getCoffeeDrinkIngredients() {
 
-}
+       return coffeeDrinkService.getCoffeeDrinkIngredients();
+
+
+    }
+
+
+
+    }
+
+
 
 /**
  *

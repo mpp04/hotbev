@@ -14,10 +14,11 @@ import javax.persistence.*;
 @Table(name = "soups")
 public class SoupModel {
 
-    public SoupModel(String Name, String Description) {
+    public SoupModel(String Name, String Description, String recipe) {
         System.out.println("MAKING NEW SOUP WITH Name= " + Name + " Description= " + Description);
         this.Name = Name;
         this.Description = Description;
+        this.recipe = recipe;
     }
 
     @Id
@@ -28,13 +29,14 @@ public class SoupModel {
     String Name;
 
     @Column
-    String recipe;
-
-    @Column
     String Description;
 
+    @Column
+    String recipe;
 
     public SoupModel() {
 
     }
+
+
 }

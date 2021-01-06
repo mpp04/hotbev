@@ -21,13 +21,19 @@ public class SoupController {
     SoupRepository soupRepository;
 
 
-    @GetMapping(
+    @PostMapping(
             value = "/addSoup",
             consumes = "application/x-www-form-urlencoded",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> requestNewSoup(@RequestParam String name, @RequestParam String d) {
-        System.out.println("GetMapping: Parameter name is: " + name + " Parameter d is: " + d);
-        soupService.newSoup(name, d);
+    public ResponseEntity<String> requestNewSoup(
+            @RequestParam String name,
+            @RequestParam String description,
+            @RequestParam String recipe) {
+
+        System.out.println("GetMapping: Parameter name is: " + name + " Parameter description is: " + description);
+
+        soupService.newSoup(name, description, recipe);
+
         return ResponseEntity.ok("You have brewed delicious Soup!");
     }
 

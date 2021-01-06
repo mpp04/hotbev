@@ -1,6 +1,17 @@
 package com.hotbev.billmodule.BillModel;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "bill")
 public class BillCoffeeDrinkModel {
 /**
     @Id
@@ -15,5 +26,8 @@ public class BillCoffeeDrinkModel {
      *
      *
      */
+
+@Id
+
 
 }

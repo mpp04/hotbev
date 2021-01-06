@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@EnableJpaRepositories
 @Service
+@EnableJpaRepositories
 public class SoupService {
     @Autowired
     SoupRepository soupRepository;
@@ -18,12 +18,12 @@ public class SoupService {
  SoupService(){}
 
 
-    public SoupModel newSoup(String name, String description) {
+    public SoupModel newSoup(String name, String description, String recipe) {
 
-        System.out.println("SOUP SERVICE: name is" + name + " description is: " + description);
-        SoupModel soup = new SoupModel(name, description);
+        System.out.println("SOUP SERVICE: name is" + name + " description is: " + description + " Recipe is: " +recipe);
+        SoupModel soup = new SoupModel(name, description, recipe);
         soupRepository.save(soup);
-        //SoupModel soup2 = SoupRepository.save(soup);
+
 
         return soup;
     }

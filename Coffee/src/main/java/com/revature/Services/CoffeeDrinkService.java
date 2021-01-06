@@ -33,6 +33,8 @@ public class CoffeeDrinkService {
     @Autowired
     CoffeeBrewingMethodRepository coffeeBrewingMethodRepository;
 
+    @Autowired
+    CoffeeDrinkIngredientsRepository coffeeDrinkIngredientsRepository;
 
     public List findAllCoffeeDrinks() {
         List result = coffeeDrinksRepository.findAll();
@@ -92,6 +94,11 @@ public class CoffeeDrinkService {
         coffeeDrinksRepository.deleteById(id);
 
         return "Deletion successful!";
+    }
+
+    public List getCoffeeDrinkIngredients() {
+        List result = coffeeDrinkIngredientsRepository.findAll();
+    return result;
     }
 
 }
