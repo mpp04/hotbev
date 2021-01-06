@@ -1,6 +1,5 @@
 package com.hotbev.billmodule.BillModel;
 
-import javax.persistence.Id;
 
 public class BillCoffeeDrinkModel {
 /**

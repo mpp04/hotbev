@@ -87,4 +87,11 @@ public class CoffeeDrinkService {
         return coffeeIngredient;
     }
 
+
+    public String deleteCoffeeDrink(Integer id) {
+        coffeeDrinksRepository.deleteById(id);
+
+        return "Deletion successful!";
+    }
+
 }

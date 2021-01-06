@@ -28,6 +28,9 @@ public class SoupModel {
     String Name;
 
     @Column
+    String recipe;
+
+    @Column
     String Description;
 
 

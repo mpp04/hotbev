@@ -4,13 +4,13 @@ import com.revature.Coffee;
 import com.revature.Models.CoffeeIngredientsModel;
 import com.revature.Models.CoffeeVarietyModel;
 import com.revature.Services.CoffeeDrinkService;
-import org.h2.util.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.Request;
+
 
 import java.util.List;
+
 
 @RequestMapping("/CoffeeDrinks")
 @RestController
@@ -21,7 +21,7 @@ public class CoffeeDrinkController {
 
 
     @RequestMapping(
-            value = "/getCoffeeDrinks",
+            value = "/getAllCoffeeDrinks",
             method = RequestMethod.GET,
             consumes = "application/x-www-form-urlencoded",
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -116,6 +116,19 @@ public class CoffeeDrinkController {
 
         return coffeeDrinkService.addCoffeeIngredient(IngredientName, details);
     }
+
+
+    @RequestMapping(
+            value = "/deleteCoffeeDrink",
+            method = RequestMethod.POST,
+            consumes = "application/x-www-form-urlencoded",
+            produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public String deleteCoffees(@RequestParam Integer id) {
+        return coffeeDrinkService.deleteCoffeeDrink(id);
+    }
+
+
 
 
 }

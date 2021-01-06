@@ -7,13 +7,17 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @EnableJpaRepositories
 @Service
 public class SoupService {
     @Autowired
     SoupRepository soupRepository;
 
-    @ResponseBody
+ SoupService(){}
+
+
     public SoupModel newSoup(String name, String description) {
 
         System.out.println("SOUP SERVICE: name is" + name + " description is: " + description);
@@ -22,7 +26,19 @@ public class SoupService {
         //SoupModel soup2 = SoupRepository.save(soup);
 
         return soup;
+    }
 
+
+    public List getAllSoups() {
+
+        List result = soupRepository.findAll();
+        return result;
+    }
+
+    public String deleteSoup(Integer id) {
+
+     soupRepository.deleteById(id);
+     return "SoupService:: Soup entry has been deleted";
     }
 
 }

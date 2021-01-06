@@ -5,8 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Repository
-@EnableJpaRepositories("com.hotbev.tea.Repositories")
 public interface TeaRepository extends JpaRepository<TeaModel, Integer> {
 
 

@@ -25,9 +25,18 @@ public class TeaModel {
     @Column
     protected String description;
 
-    public TeaModel(Integer id, String description) {
-        this.id = id;
+    @Column
+    protected String name;
+
+    @Column
+    protected String source;
+
+
+
+    public TeaModel(String description, String name, String source) {
         this.description = description;
+          this.name=name;
+        this.source = source;
     }
 
     public TeaModel() {
