@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.print.attribute.standard.Media;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 
@@ -79,7 +82,7 @@ public class CoffeeDrinkController {
             value = "/makeCoffeeDrink",
             method = RequestMethod.POST,
             consumes = "application/x-www-form-urlencoded",
-            produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public String makeCoffeeDrink(
             @RequestParam String coffeeVariety,
@@ -87,11 +90,22 @@ public class CoffeeDrinkController {
             @RequestParam String coffeeFilter,
             @RequestParam String coffeeBrewingMethod,
             @RequestParam String coffeeDrinkName,
-            @RequestParam String coffeeDrinkDescription
+            @RequestParam String coffeeDrinkDescription,
+            HttpSession httpSession,
+            HttpServletRequest httpServletRequest,
+            Date sessionDate
 
     ) {
-        coffeeDrinkService.makeNewCoffeeDrink(coffeeVariety, coffeeIngredients, coffeeFilter,
-                coffeeBrewingMethod, coffeeDrinkName, coffeeDrinkDescription);
+        String sessionID = httpSession.getId();
+        String remoteAddress = httpServletRequest.getRemoteAddr();
+        Date date = new Date();
+
+        coffeeDrinkService.makeNewCoffeeDrink(coffeeVariety,
+                coffeeIngredients, coffeeFilter,
+                coffeeBrewingMethod, coffeeDrinkName,
+                coffeeDrinkDescription,
+                sessionID,remoteAddress,date );
+
         return "Successfully made another delightful addition to the library of Custom Coffee Drinks!";
     }
 

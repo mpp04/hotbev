@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.h2.util.json.JSONObject;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -25,7 +26,10 @@ public class CoffeeDrinkModel {
             String coffeeFilter,
             String coffeeBrewingMethod,
             String coffeeDrinkName,
-            String coffeeDrinkDescription) {
+            String coffeeDrinkDescription,
+            String SessionID,
+            String remoteAddress,
+            Date date) {
 
         this.coffeeVariety = coffeeVariety;
         this.coffeeIngredients = coffeeIngredients;
@@ -33,6 +37,9 @@ public class CoffeeDrinkModel {
         this.coffeeBrewingMethod = coffeeBrewingMethod;
         this.coffeeDrinkName = coffeeDrinkName;
         this.coffeeDrinkDescription = coffeeDrinkDescription;
+        this.SessionID= SessionID;
+        this.remoteAddress= remoteAddress;
+        this.date=date;
     }
 
 
@@ -58,5 +65,12 @@ public class CoffeeDrinkModel {
     @Column(name = "coffee_drink_description")
     String coffeeDrinkDescription;
 
+    @Column(name = "session_id")
+    String SessionID;
 
+    @Column(name="remote_address")
+    String remoteAddress;
+
+    @Column(name = "date")
+    Date date;
 }

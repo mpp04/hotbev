@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -67,10 +68,22 @@ public class CoffeeDrinkService {
     public CoffeeDrinkModel makeNewCoffeeDrink(String coffeeVariety, String coffeeIngredients,
                                                String coffeeFilter, String coffeeBrewingMethod,
                                                String coffeeDrinkName,
-                                               String coffeeDrinkDescription) {
+                                               String coffeeDrinkDescription,
+                                               String sessionID,
+                                               String remoteAddress,
+                                               Date date){
 
-        CoffeeDrinkModel coffeeDrink = new CoffeeDrinkModel(coffeeVariety, coffeeIngredients,
-                coffeeFilter, coffeeBrewingMethod, coffeeDrinkName, coffeeDrinkDescription);
+        CoffeeDrinkModel coffeeDrink = new CoffeeDrinkModel(
+                coffeeVariety,
+                coffeeIngredients,
+                coffeeFilter,
+                coffeeBrewingMethod,
+                coffeeDrinkName,
+                coffeeDrinkDescription,
+                sessionID,
+                remoteAddress,
+                date
+                );
         coffeeDrinksRepository.save(coffeeDrink);
         return coffeeDrink;
     }

@@ -15,7 +15,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-public class ORMConfig {
+public class OrderHistoryConfig {
+
     @Value("${spring.datasource.driver-class-name}")
     private String driverName;
 
@@ -59,7 +60,7 @@ public class ORMConfig {
     public LocalSessionFactoryBean sessionFactoryBean(DataSource dsb) {
         LocalSessionFactoryBean sfBean = new LocalSessionFactoryBean();
         sfBean.setDataSource(dsb);
-        sfBean.setPackagesToScan("com.hotbev.history");
+        sfBean.setPackagesToScan("com.hotbev");
         sfBean.setHibernateProperties(getSfProps());
         System.out.println("sessionFact");
         return sfBean;
