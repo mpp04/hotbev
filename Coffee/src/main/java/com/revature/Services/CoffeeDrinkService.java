@@ -2,9 +2,9 @@ package com.revature.Services;
 
 import com.revature.Models.CoffeeDrinkModel;
 import com.revature.Models.CoffeeIngredientsModel;
+import com.revature.Models.CoffeeDrinksHistoryModel;
 import com.revature.Models.CoffeeVarietyModel;
 import com.revature.Repositories.*;
-import org.h2.util.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
@@ -37,6 +37,9 @@ public class CoffeeDrinkService {
     @Autowired
     CoffeeDrinkIngredientsRepository coffeeDrinkIngredientsRepository;
 
+    @Autowired
+    CoffeeOrderHistoryRepository coffeeOrderHistoryRepository;
+
     public List findAllCoffeeDrinks() {
         List result = coffeeDrinksRepository.findAll();
         return result;
@@ -65,8 +68,10 @@ public class CoffeeDrinkService {
     }
 
 
-    public CoffeeDrinkModel makeNewCoffeeDrink(String coffeeVariety, String coffeeIngredients,
-                                               String coffeeFilter, String coffeeBrewingMethod,
+    public CoffeeDrinkModel makeNewCoffeeDrink(String coffeeVariety,
+                                               String coffeeIngredients,
+                                               String coffeeFilter,
+                                               String coffeeBrewingMethod,
                                                String coffeeDrinkName,
                                                String coffeeDrinkDescription,
                                                String sessionID,
@@ -88,7 +93,33 @@ public class CoffeeDrinkService {
         return coffeeDrink;
     }
 
+    public CoffeeDrinksHistoryModel addOrderHistoryEntry(String coffeeVariety,
+                                                         String coffeeIngredients,
+                                                         String coffeeFilter,
+                                                         String coffeeBrewingMethod,
+                                                         String coffeeDrinkName,
+                                                         String coffeeDrinkDescription,
+                                                         String sessionID,
+                                                         String remoteAddress,
+                                                         Date date) {
 
+        CoffeeDrinksHistoryModel orderHistoryEntry = new CoffeeDrinksHistoryModel(
+                coffeeVariety,
+                coffeeIngredients,
+                coffeeFilter,
+                coffeeBrewingMethod,
+                coffeeDrinkName,
+                coffeeDrinkDescription,
+                sessionID,
+                remoteAddress,
+                date
+        );
+        coffeeOrderHistoryRepository.save(orderHistoryEntry);
+
+
+        return orderHistoryEntry;
+
+    }
     public CoffeeVarietyModel makeNewVariety(String coffeeVariety, String details) {
 
         CoffeeVarietyModel coffeeVarietyModel = new CoffeeVarietyModel(coffeeVariety, details);
@@ -112,6 +143,11 @@ public class CoffeeDrinkService {
     public List getCoffeeDrinkIngredients() {
         List result = coffeeDrinkIngredientsRepository.findAll();
     return result;
+    }
+
+    public void deleteAllCoffeeDrinks() {
+
+        coffeeDrinksRepository.deleteAll();
     }
 
 }

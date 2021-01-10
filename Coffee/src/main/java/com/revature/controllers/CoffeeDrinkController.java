@@ -1,6 +1,6 @@
 package com.revature.controllers;
 
-import com.revature.Coffee;
+
 import com.revature.Models.CoffeeIngredientsModel;
 import com.revature.Models.CoffeeVarietyModel;
 import com.revature.Services.CoffeeDrinkService;
@@ -9,11 +9,12 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.print.attribute.standard.Media;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
+
 
 
 @RequestMapping("/CoffeeDrinks")
@@ -92,8 +93,8 @@ public class CoffeeDrinkController {
             @RequestParam String coffeeDrinkName,
             @RequestParam String coffeeDrinkDescription,
             HttpSession httpSession,
-            HttpServletRequest httpServletRequest,
-            Date sessionDate
+            HttpServletRequest httpServletRequest
+
 
     ) {
         String sessionID = httpSession.getId();
@@ -144,9 +145,24 @@ public class CoffeeDrinkController {
     }
 
 
+    //delete all
 
     @RequestMapping(
-            value = "getCoffeeDrinkIngredients",
+            value="/deleteAllCoffeeDrinks",
+            method = RequestMethod.POST,
+            consumes = "text/plain",
+            produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public void deleteAllCoffeeDrinks() {
+
+        coffeeDrinkService.deleteAllCoffeeDrinks();
+    };
+
+
+
+
+    @RequestMapping(
+            value = "/getCoffeeDrinkIngredients",
             method = RequestMethod.GET,
             consumes = "application/x-www-form-urlencoded",
             produces = MediaType.TEXT_PLAIN_VALUE)
@@ -157,6 +173,10 @@ public class CoffeeDrinkController {
 
 
     }
+
+
+
+
 
 
 

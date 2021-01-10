@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-public class OrderHistoryConfig {
+public class DrinksHistoryConfig {
 
     @Value("${spring.datasource.driver-class-name}")
     private String driverName;

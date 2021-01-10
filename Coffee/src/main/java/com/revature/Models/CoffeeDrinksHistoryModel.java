@@ -1,24 +1,25 @@
 package com.revature.Models;
 
-
-
 import lombok.Getter;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
+
 
 @Getter
 @Setter
 @Entity
-@Table(name = "coffee_drinks")
-public class CoffeeDrinkModel {
+@Table(name="coffee_drinks_history")
+public class CoffeeDrinksHistoryModel {
 
-    public CoffeeDrinkModel() {
+
+
+    public CoffeeDrinksHistoryModel() {
     }
 
 
-    public CoffeeDrinkModel(
+    public CoffeeDrinksHistoryModel(
             String coffeeVariety,
             String coffeeIngredients,
             String coffeeFilter,
@@ -28,7 +29,7 @@ public class CoffeeDrinkModel {
             String SessionID,
             String remoteAddress,
             Date date
-        ) {
+    ) {
 
         this.coffeeVariety = coffeeVariety;
         this.coffeeIngredients = coffeeIngredients;
@@ -72,5 +73,4 @@ public class CoffeeDrinkModel {
 
     @Column(name = "date")
     Date date;
-
 }
