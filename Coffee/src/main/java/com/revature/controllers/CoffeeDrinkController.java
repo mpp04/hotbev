@@ -3,20 +3,18 @@ package com.revature.controllers;
 
 import com.revature.Models.CoffeeIngredientsModel;
 import com.revature.Models.CoffeeVarietyModel;
+
 import com.revature.Services.CoffeeDrinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
 
-
+@CrossOrigin
 @RequestMapping("/CoffeeDrinks")
 @RestController
 public class CoffeeDrinkController {
@@ -182,9 +180,4 @@ public class CoffeeDrinkController {
 
     }
 
-
-
-/**
- *
- */
 

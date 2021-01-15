@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/Coffee")
 public class CoffeeController {
 
@@ -32,7 +33,9 @@ public class CoffeeController {
     @RequestMapping(
             value = "/create",
             method = RequestMethod.POST,
-            consumes = "application/x-www-form-urlencoded")
+            consumes = "application/x-www-form-urlencoded",
+            produces = "text/plain"
+            )
     @ResponseBody
     public String newCoffee(@RequestParam String name, @RequestParam String description) {
 
@@ -48,7 +51,7 @@ public class CoffeeController {
     @RequestMapping(
             value = "/getCoffees",
             method = RequestMethod.GET,
-            consumes = "application/x-www-form-urlencoded",
+            consumes = "application/json",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List getCoffees() {
