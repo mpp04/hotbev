@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.revature</groupId>
-    <artifactId>SpringBootDemo</artifactId>
+    <artifactId>HotBevCoffee</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Coffee</name>
     <description>Hot Bev project Coffees</description>
@@ -161,6 +161,7 @@
          <plugin>
              <groupId>org.springframework.boot</groupId>
              <artifactId>spring-boot-maven-plugin</artifactId>
+
          </plugin>
      </plugins>
  </build>
