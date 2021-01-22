@@ -1,15 +1,12 @@
-### Employ the builder pattern
-FROM maven:3.6.1-jdk-8 as builder
-### Provide Default Argument
-WORKDIR /usr/src/app 
-COPY ./target .  
-## Use only a JRE to run application
-FROM gcr.io/distroless/java:8
-# FROM openjdk:7
-## Copy Artifact from maven image
-WORKDIR /app 
-# RUN echo you are here:
-RUN pwd && ls
-COPY --from=builder /usr/src/app/HotBevCoffee-*-SNAPSHOT.jar /app/HotBevCoffee.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM openjdk:8-jdk-alpine
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+# provide secrets at build
+ARG USR=mpp04
+ARG PWD=>lf,o=5D
+# persist secrets in future container
+ENV postgresql_usr=${USR}
+ENV postgresql_pwd=${PWD}
+ENTRYPOINT ["java","-jar","/app.jar"]
