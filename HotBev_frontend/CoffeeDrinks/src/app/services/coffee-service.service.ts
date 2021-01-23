@@ -20,7 +20,7 @@ export class CoffeeServiceService {
     });
 
 
-  CoffeesEndpoint: string = "http://0.0.0.0:8091/boot/Coffee";
+  CoffeesEndpoint: string = "http://localhost:8091/boot/Coffee";
 
   constructor(private httpClient: HttpClient) { }
 

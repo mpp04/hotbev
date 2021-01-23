@@ -21,9 +21,9 @@ COPY --from=angular /app/dist/CoffeeDrinks /usr/share/nginx/html/hotbev
 EXPOSE 80
 
 # then build: docker build -t mpp04/hotbevfrontend .
-# then push to docker registry
+# then push to docker registry, thus
 # sudo docker push mpp04/hotbevfrontend
-# to run image:
-# sudo docker run -p 80:80 -t mpp04/hotbevfrontend
+# then to run image:
+# sudo docker run -p 80:80 -t mpp04/hotbev_frontend
 # note you might have to login first using: sudo docker loing #followed by credentials wizzard
 # last_update: 22 JAN 1237
