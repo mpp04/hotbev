@@ -1,4 +1,6 @@
 
+// DRAFT PIPELINE MODELS!
+
 pipeline 
 {
 	agent any

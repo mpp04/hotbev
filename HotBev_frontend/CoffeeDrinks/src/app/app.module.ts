@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CoffeeServiceService } from './services/coffee-service.service';
 import { RegularCoffeesComponent } from './regular-coffees/regular-coffees.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CoffeeDrinksModule } from './coffee-drinks/coffee-drinks.module';
 
 
 @NgModule({
@@ -20,13 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     ContactComponent,
-    RegularCoffeesComponent
+    RegularCoffeesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    CoffeeDrinksModule
     ],
   providers: [
     CoffeeServiceService,

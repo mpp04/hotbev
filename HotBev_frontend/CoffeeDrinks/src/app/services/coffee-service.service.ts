@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CoffeeModel } from "src/app/models/coffee-model.model";
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment'
 
 
 @Injectable({
@@ -20,14 +20,15 @@ export class CoffeeServiceService {
     });
 
 
-  CoffeesEndpoint: string = "http://localhost:8091/boot/Coffee";
+  CoffeesURL = `${environment.CoffeesEndpoint}`;
 
   constructor(private httpClient: HttpClient) { }
 
   
 
     getCoffees(): Observable<CoffeeModel> {
-      return this.httpClient.get<CoffeeModel>(this.CoffeesEndpoint + '/getCoffees', {'headers':this.headers});
+      console.log('This is:' +this.CoffeesURL)
+      return this.httpClient.get<CoffeeModel>(this.CoffeesURL + '/getCoffees', {'headers':this.headers});
   
       //return this.httpClient.get(this.CoffeesEndpoint);
  
@@ -36,7 +37,7 @@ export class CoffeeServiceService {
 
 addCoffees(name:string, description:string) {
   
-  return this.httpClient.post<any>(this.CoffeesEndpoint + '/create?name='+name+'&description='+description, null,  
+  return this.httpClient.post<any>(this.CoffeesURL + '/create?name='+name+'&description='+description, null,  
   {'headers': this.headersXForm})
 }
 

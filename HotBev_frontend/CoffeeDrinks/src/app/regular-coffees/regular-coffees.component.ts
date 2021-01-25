@@ -19,14 +19,15 @@ coffees:any= [];
    }
 
   ngOnInit()    { 
-    this.getCoffees();
-    this.addCoffees();
+   this.getCoffees();
+  //  this.addCoffees();
   }
 
 
   getCoffees() {
     return this.coffeeService.getCoffees().subscribe((res: {}) =>
-    { this.coffees = res;     })
+    { console.log('getting all regular coffes');
+      this.coffees = res;     })
   }
 
 
